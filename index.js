@@ -1,21 +1,22 @@
-// (Primeiro passo. foi mapear os elementos para conseguir fazer o controle)
 // Mapeamento dos elementos
+
 let filtroAtual = 'todas';
 
-const btnTodas = document.getElementById('btnFiltroTodas');
-const btnPendentes = document.getElementById('btnFiltroPendentes');
-const btnConcluidas = document.getElementById('btnFiltroConcluidas');
-
+// -- Mapeamento dos elementos do HTML
 const inputTarefa = document.getElementById("textNovaTarefa");
 const btnAdicionar = document.getElementById("btnAdicionar");
 const listaTarefas = document.getElementById("listaTarefas");
 const contadorTarefas = document.getElementById("contadorTarefas");
 const btnLimparConcluidas = document.getElementById("btnLimparTodas");
 
-// Recupera as tarefas do LocalStorage ou inicializa como um array vazio
+// -- Mapeamento dos botões de filtro
+const btnTodas = document.getElementById('btnFiltroTodas');
+const btnPendentes = document.getElementById('btnFiltroPendentes');
+const btnConcluidas = document.getElementById('btnFiltroConcluidas');
+
+// -- Recupera as tarefas do LocalStorage ou inicializa como um array vazio
 let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
-// (Segundo passo. função que limpa e redesenha a lista na tela)
 // Funções para adicionar nova tela
 function renderizarTarefas() {
     listaTarefas.innerHTML = "";
@@ -44,18 +45,19 @@ function renderizarTarefas() {
     atualizarContador();
 }
 
-// (Terceiro passo. criar a função para alternar o status da tarefa)
-// Função para adicionar nova tarefa
+// Criar a função para alternar o status da tarefa
+
+// -- Função para adicionar nova tarefa
 function adicionarTarefa() {
     const texto = inputTarefa.value.trim();
 
-    // SweetAlert2 para exibir uma mensagem de erro se o campo estiver vazio
+    // -- SweetAlert2 para exibir uma mensagem de erro se o campo estiver vazio
     if (texto === '') {
         Swal.fire({
             icon: "error",
             title: "Oops...",
             text: "Por favor, digite uma nova tarefa!",
-            confirmButtonColor: "#0d6efd" // Cor azul do Bootstrap para combinar com o seu layout
+            confirmButtonColor: "#0d6efd"
         });
         return;
     }
@@ -78,28 +80,27 @@ function salvarNoLocalStorage() {
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
 
-// (Quarto passo, criar a função para atualizar o contador de pendencias)
-// Funçção para marcar como concluida ou não uma tarefa
+// Função para atualizar o contador de pendências
+
+// -- Função para marcar como concluída ou não uma tarefa
 window.alternarTarefa = function(index) {
     tarefas[index].concluida = !tarefas[index].concluida;
     salvarNoLocalStorage();
     renderizarTarefas();
 }
 
-// Função para deletar uma tarefa oespecífica
+// Função para deletar uma tarefa específica
 window.deletarTarefa = function(index) {
-    tarefas.splice(index, 1); // remove a tarefa do array ne
+    tarefas.splice(index, 1); // remove a tarefa do array
     salvarNoLocalStorage();
     renderizarTarefas();
 }
 
-// Atualiza o contador do card-footer, que é a lista la embaixo
+// Atualiza o contador do card-footer, que é a lista lá embaixo
 function atualizarContador() {
     const pendentes = tarefas.filter(t => !t.concluida).length;
     contadorTarefas.textContent = `${pendentes} Tarefa${pendentes !== 1 ? 's' : ''} Pendente${pendentes !== 1 ? 's' : ''}`;
     }
-    
-// Mapear os botões de filtro do HTML
 
 // Função para alternar a cor cinza escuro (active) do Bootstrap entre eles
 function atualizarEstiloBotoes(botaoAtivo) {
