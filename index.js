@@ -2,19 +2,23 @@
 // Mapeamento dos elementos
 let filtroAtual = 'todas';
 
+const btnTodas = document.getElementById('btnFiltroTodas');
+const btnPendentes = document.getElementById('btnFiltroPendentes');
+const btnConcluidas = document.getElementById('btnFiltroConcluidas');
+
 const inputTarefa = document.getElementById("textNovaTarefa");
 const btnAdicionar = document.getElementById("btnAdicionar");
-const listaTarefas = document.getElementById("ListaTarefas");
+const listaTarefas = document.getElementById("listaTarefas");
 const contadorTarefas = document.getElementById("contadorTarefas");
 const btnLimparConcluidas = document.getElementById("btnLimparTodas");
 
 // Recupera as tarefas do LocalStorage ou inicializa como um array vazio
 let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
-// (Segundo passo. foi criar a função para atualizar o contador de tarefas)
+// (Segundo passo. função que limpa e redesenha a lista na tela)
 // Funções para adicionar nova tela
 function renderizarTarefas() {
-    ListaTarefas.innerHTML = "";
+    listaTarefas.innerHTML = "";
 
     tarefas.forEach((tarefa, index) => {
 
@@ -34,7 +38,7 @@ function renderizarTarefas() {
             &times;
             </button>
         `;
-        ListaTarefas.appendChild(li);
+        listaTarefas.appendChild(li);
     });
 
     atualizarContador();
@@ -45,6 +49,7 @@ function renderizarTarefas() {
 function adicionarTarefa() {
     const texto = inputTarefa.value.trim();
 
+    // SweetAlert2 para exibir uma mensagem de erro se o campo estiver vazio
     if (texto === '') {
         Swal.fire({
             icon: "error",
@@ -73,9 +78,6 @@ function salvarNoLocalStorage() {
     localStorage.setItem("tarefas", JSON.stringify(tarefas));
 }
 
-btnAdicionar.addEventListener('click', adicionarTarefa);
-
-
 // (Quarto passo, criar a função para atualizar o contador de pendencias)
 // Funçção para marcar como concluida ou não uma tarefa
 window.alternarTarefa = function(index) {
@@ -98,9 +100,6 @@ function atualizarContador() {
     }
     
 // Mapear os botões de filtro do HTML
-const btnTodas = document.getElementById('btnFiltroTodas');
-const btnPendentes = document.getElementById('btnFiltroPendentes');
-const btnConcluidas = document.getElementById('btnFiltroConcluidas');
 
 // Função para alternar a cor cinza escuro (active) do Bootstrap entre eles
 function atualizarEstiloBotoes(botaoAtivo) {
@@ -140,5 +139,7 @@ document.getElementById('form1').addEventListener('submit', (e) => {
     e.preventDefault(); 
     adicionarTarefa();
 });
+
+btnAdicionar.addEventListener('click', adicionarTarefa);
 
 renderizarTarefas();
