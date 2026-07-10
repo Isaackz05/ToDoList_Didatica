@@ -1,11 +1,11 @@
 # ToDoList Didática
 
 BIBLIOTECAS:
-* sweetalert2
-* bootstrap
-* bootstrap icons
+- **sweetalert2**
+- **bootstrap**
+- **bootstrap icons**
   
 LINGUAGENS:
-* HTML
-* CSS
-* JavaScript
+- **HTML**
+- **CSS**
+- **JavaScript**
