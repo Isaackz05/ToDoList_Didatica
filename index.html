@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDoListDidatica</title>
+    <link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+</head>
+
+<body class="bg-light">
+    <form id="form1" runat="server">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+
+                    <!-- Card Principal -->
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white text-center py-3">
+                            <h3 class="mb-0">ToDoList Didática</h3>sss
+                            <small>Persistência com LocalStorage</small>
+                        </div>
+                        <div class="card-body">
+                        
+                            <!-- Formulário de Entreada (Vanilla JS controla)-->
+                        <div class="input-group mb-3">
+                            <input type="text" id="textNovaTarefa" class="form-control" placeholder="Digite uma nova tarefa..." aria-label="Nova Tarefa">
+                            <button class="btn btn-primary" type="button" id="btnAdicionar">Adicionar</button>
+                        </div>
+
+                        <!-- Filtros de Visualização-->
+
+                        <div class="d-flex justify-content-center gap-2 mb-3">
+                            <button type="button" class="btn btn-sm btn-outline-secondary active" id="btnFiltroTodas">Todas</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary " id="btnFiltroPendentes">Pendentes</button>
+                            <button type="button" class="btn btn-sm btn-outline-secondary " id="btnFiltroConcluidas">Concluídas</button>
+                        </div>
+
+                        <!-- Lista de Tarefas -->
+                         <ul class="list-group" id="ListaTarefas">
+                            <!-- Os itens serão injentados aqui via JavaScript -->
+                         </ul>
+                        <!-- Mensagem -->
+                    </div>
+                    <div class="card-footer d-flex justify-content-between text-muted small">
+                        <span id="contadorTarefas">0 Tarefas Pendentes</span>
+                        <a href="#" id="btnLimparTodas" class="text-danger text-decoration-none">Limpar Concluídas</a>
+                    </div>
+                    </div>
+                </div>        
+            </div>
+        </div>
+    </form>
+    
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>
