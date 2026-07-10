@@ -1,12 +1,12 @@
 # ToDoList Didática
 
-  Tecnologias usadas:
-- Bibliotecas:
+Tecnologias usadas:
+BIBLIOTECAS:
 * sweetalert2
 * bootstrap
 * bootstrap icons
   
-- LINGUAGENS:
+LINGUAGENS:
 * HTML
 * CSS
 * JavaScript
