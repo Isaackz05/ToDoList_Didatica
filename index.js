@@ -1,5 +1,4 @@
 // Mapeamento dos elementos
-
 let filtroAtual = 'todas';
 
 // -- Mapeamento dos elementos do HTML
