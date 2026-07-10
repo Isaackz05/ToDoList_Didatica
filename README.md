@@ -1,11 +1,6 @@
 # ToDoList Didática
-
-## BIBLIOTECAS:
-- **sweetalert2**
-- **bootstrap**
-- **bootstrap icons**
   
-## LINGUAGENS:
-- **HTML**
-- **CSS**
-- **JavaScript**
+## 👩‍💻TECNOLOGIAS:
+- **HTML**: Usada para marcação.
+- **JavaScript**: Linguagem de programação.
+- **sweetalert2 & bootstrap**: Bibliotecas usadas para o desenvolvimento.
