@@ -1,6 +1,7 @@
 // (Primeiro passo. foi mapear os elementos para conseguir fazer o controle)
 // Mapeamento dos elementos
 let filtroAtual = 'todas';
+
 const inputTarefa = document.getElementById("textNovaTarefa");
 const btnAdicionar = document.getElementById("btnAdicionar");
 const listaTarefas = document.getElementById("ListaTarefas");
