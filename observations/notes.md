@@ -1,0 +1,1 @@
+Esse arquivo foi criado especificamente para colocar notas específicas dentro do código, ele tem o intuito de ser como um lembrete do que serve cada coisa para que o aprendizado fique cada vez melhor.

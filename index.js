@@ -35,10 +35,16 @@ function renderizarTarefas() {
                     ${tarefa.texto}
                 </label>
             </div>
-            <button type="button" class="btn btn-sm btn-outline-danger" onclick="deletarTarefa(${index})">
-            &times;
-            </button>
-        `;
+            <div>
+                <button type="button" class="btn btn-sm btn-outline-warning me-1" onclick="editarTarefa(${index})">
+                    Editar
+                </button>
+             
+                <button type="button" class="btn btn-sm btn-outline-danger" onclick="deletarTarefa(${index})">
+                &times;
+                </button>
+            </div> 
+            `;
         listaTarefas.appendChild(li);
     });
 
@@ -95,6 +101,27 @@ window.deletarTarefa = function(index) {
     salvarNoLocalStorage();
     renderizarTarefas();
 }
+
+// Função para editar uma tarefa específica
+window.editarTarefa = function(index) {
+    Swal.fire({
+        title: 'Editar Tarefa',
+        input: 'text',
+        inputValue: tarefas[index].texto,
+        showCancelButton: true,
+        confirmButtonText: 'Salvar',
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#0d6efd',
+    }).then((result) => {
+        if (result.isConfirmed && result.value.trim() !== '') {
+
+            tarefas[index].texto = result.value.trim();
+            salvarNoLocalStorage();
+            renderizarTarefas();
+        }
+    });
+}
+
 
 // Atualiza o contador do card-footer, que é a lista lá embaixo
 function atualizarContador() {
